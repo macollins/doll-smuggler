@@ -2,8 +2,6 @@
   (:use [doll-smuggler.core])
   (:require clojure.string))
 
-(defstruct knapsack-item :name :weight :value)
-
 (defn read-data-file
   [filename]
   (clojure.string/split-lines (slurp filename)))

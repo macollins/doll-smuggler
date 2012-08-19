@@ -4,7 +4,7 @@
   (:use [clojure.test]))
 
 (testing "reads a file"
-  (deftest should-read-a-dummy-file
+  (deftest should-parse-many-dolls-a-dummy-file
     (is (= ["foo" "bar" "baz"] (read-data-file "test/resources/data/dummy.txt")))))
 
 (testing "parses data"
@@ -20,7 +20,7 @@
     (is (= (struct doll "luke" 9 150) (parse-doll "luke        9   150")))))
 
 (testing "parses dolls from data"
-  (deftest should-handle-no-data
+  (deftest should-handle-no-dolls
     (is (= 0 (count (parse-dolls [])))))
 
   (deftest should-parse-one-doll
