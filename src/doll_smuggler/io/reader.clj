@@ -23,10 +23,8 @@
 
 (defn parse-data
   [data]
-  (parse-max-weight data)
   { :max-weight (parse-max-weight data)
-
-  } )
+    :dolls      (parse-dolls data) } )
 
 
 

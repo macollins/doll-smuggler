@@ -6,5 +6,5 @@
 
 (defn -main
   [& args]
-  (println "it works")
-  (read-data-file "test/resources/data/dummy.txt"))
+  (println (parse-data (read-data-file "test/resources/data/example_data.txt")))
+  )
