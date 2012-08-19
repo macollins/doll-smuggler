@@ -1,6 +1,7 @@
 (ns doll-smuggler.test.io.reader
-  (:use [doll-smuggler.io.reader])
   (:use [doll-smuggler.core])
+  (:use [doll-smuggler.doll])
+  (:use [doll-smuggler.io.reader])
   (:use [clojure.test]))
 
 (testing "reads a file"

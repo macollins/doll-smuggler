@@ -1,5 +1,5 @@
 (ns doll-smuggler.io.reader
-  (:use [doll-smuggler.core])
+  (:use [doll-smuggler.doll])
   (:require clojure.string))
 
 (defn read-data-file

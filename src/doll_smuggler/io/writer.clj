@@ -1,5 +1,5 @@
 (ns doll-smuggler.io.writer
-  (:use [doll-smuggler.core])
+  (:use [doll-smuggler.doll])
   (:require clojure.string))
 
 (defn write-title

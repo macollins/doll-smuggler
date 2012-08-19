@@ -1,5 +1,6 @@
 (ns doll-smuggler.test.io.writer
   (:use [doll-smuggler.core])
+  (:use [doll-smuggler.doll])
   (:use [doll-smuggler.io.writer])
   (:use [clojure.test]))
 
