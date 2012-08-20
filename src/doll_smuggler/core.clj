@@ -1,8 +1,7 @@
 (ns doll-smuggler.core
   (:use [doll-smuggler.doll])
   (:use [doll-smuggler.io.reader])
-  (:use [doll-smuggler.io.writer])
-  (:use [clojure.string :only [join]]))
+  (:use [doll-smuggler.io.writer]))
 
 (def ^:dynamic items [])
 
