@@ -25,12 +25,16 @@
  
 (def mm (memoize m))
 
+(defn total-weight
+  [dolls indexes]
+  (reduce + (map (comp :weight dolls) indexes)))
+
 (defn -main
   [& args]
   (if (= (count args) 0)
       ((println "Usage: lein run <path to data file>")
        (System/exit 0)))
-  
+
   (def filename (first args))
   (def data (parse-data (read-data-file filename)))
   (def max-weight (get data :max-weight))
@@ -39,8 +43,7 @@
 
   (let [[value indexes] (m  (-> dolls count dec) max-weight)
         names (map (comp :name dolls) indexes)]
-    (println "items to pack:" (join ", " names))
     (println "total value:" value)
-    (println "total weight:" (reduce + (map (comp :weight dolls) indexes)))
+    (println "total weight:" (total-weight dolls indexes))
 
     (write-dolls dolls indexes)))
