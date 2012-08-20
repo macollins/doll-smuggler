@@ -27,7 +27,12 @@
 
 (defn -main
   [& args]
-  (def data (parse-data (read-data-file "test/resources/data/example_data.txt")))
+  (if (= (count args) 0)
+      ((println "Usage: lein run <path to data file>")
+       (System/exit 0)))
+  
+  (def filename (first args))
+  (def data (parse-data (read-data-file filename)))
   (def max-weight (get data :max-weight))
   (def dolls (vec (get data :dolls)))
   (def ^:dynamic items dolls)
