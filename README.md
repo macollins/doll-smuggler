@@ -7,7 +7,6 @@ Use lein to run the solution from the project directory:
 e.g.
 
 `lein run test/resources/data/example_data.txt`
-d
 
 ## Running the Tests
 
