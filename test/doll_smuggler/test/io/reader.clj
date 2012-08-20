@@ -29,12 +29,12 @@
     (is (= 0 (count (parse-dolls [])))))
 
   (deftest should-parse-one-doll
-    (def dolls (parse-dolls ["" "" "" "" "" "luke        9   150"]))
+    (def expected-dolls (parse-dolls ["" "" "" "" "" "luke        9   150"]))
     (is (= [luke]))
-    (is (= 1 (count dolls)))
+    (is (= 1 (count expected-dolls)))
     ))
 
   (deftest should-parse-many-dolls
-    (def dolls (parse-dolls ["" "" "" "" "" "luke        9   150" "anthony    13    35"]))
-    (is (= [luke anthony] dolls))
-    (is (= [luke anthony] dolls)))
+    (def expected-dolls (parse-dolls ["" "" "" "" "" "luke        9   150" "anthony    13    35"]))
+    (is (= [luke anthony] expected-dolls))
+    (is (= [luke anthony] expected-dolls)))
