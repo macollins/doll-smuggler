@@ -9,18 +9,18 @@
 ; Adapted from: http://rosettacode.org/wiki/Knapsack_problem/0-1#Clojure
 (declare mm)
  
-(defn m [idx w]
+(defn m [idx max-weight]
   (cond
     (< idx 0) [0 []]
-    (= w 0) [0 []]
+    (= max-weight 0) [0 []]
     :else
-    (let [{wi :weight vi :value} (get items idx)]
-      (if (> wi w)
-        (mm (dec idx) w)
-        (let [[vn sn :as no]  (mm (dec idx) w)
-              [vy sy :as yes] (mm (dec idx) (- w wi))]
-          (if (> (+ vy vi) vn)
-            [(+ vy vi) (conj sy idx)]
+    (let [{doll-weight :weight doll-value :value} (get items idx)]
+      (if (> doll-weight max-weight)
+        (mm (dec idx) max-weight)
+        (let [[vn sn :as no]  (mm (dec idx) max-weight)
+              [vy sy :as yes] (mm (dec idx) (- max-weight doll-weight))]
+          (if (> (+ vy doll-value) vn)
+            [(+ vy doll-value) (conj sy idx)]
             no))))))
  
 (def mm (memoize m))
