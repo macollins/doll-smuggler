@@ -19,7 +19,8 @@
   (println (format-doll-row doll)))
 
 (defn write-dolls
-  [dolls]
-  (write-title)
+  [dolls indexes]
+  (write-title) 
   (write-headers)
-  (dorun (map write-doll dolls)))
+
+  (dorun (map #(write-doll (get dolls %)) (reverse indexes))))

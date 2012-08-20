@@ -28,11 +28,9 @@
 (defn -main
   [& args]
   (def data (parse-data (read-data-file "test/resources/data/example_data.txt")))
-  (def dolls (vec (get data :dolls)))
   (def max-weight (get data :max-weight))
-
+  (def dolls (vec (get data :dolls)))
   (def ^:dynamic items dolls)
-
 
   (let [[value indexes] (m  (-> dolls count dec) max-weight)
         names (map (comp :name dolls) indexes)]
@@ -40,14 +38,4 @@
     (println "total value:" value)
     (println "total weight:" (reduce + (map (comp :weight dolls) indexes)))
 
-    (println(zipmap indexes dolls))
-    '(println (nth dolls (first indexes)))
-
-    (println indexes)
-    (println names)
-    (println value)
-
-    (write-dolls dolls)
-
-    )
-  )
+    (write-dolls dolls indexes)))
